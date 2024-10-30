@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Search Engine Switcher",
+  "version": "1.3",
+  "description": "Переключайтесь между поисковыми системами с тем же запросом.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.google.com/search*",
+        "*://www.bing.com/search*",
+        "*://www.yandex.ru/search*",
+        "*://www.yandex.com/search*",
+        "*://duckduckgo.com/*",
+        "*://www.chipdip.ru/search*",
+        "*://www.mouser.co.uk/c/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ]
+}

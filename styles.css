@@ -1,0 +1,108 @@
+#search-switcher-container {
+font-family: Arial, sans-serif;
+background-color: #333;
+border: 1px solid #555;
+border-radius: 5px;
+padding: 10px;
+position: fixed;
+top: 10px;
+right: 10px;
+z-index: 999999;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#search-switcher-container.dark-mode {
+background-color: #333;
+border-color: #555;
+}
+
+#search-switcher-toggle {
+position: absolute;
+top: 10px;
+left: -25px;
+width: 25px;
+height: 25px;
+background-color: #333;
+border: 1px solid #555;
+border-radius: 0 5px 5px 0;
+cursor: pointer;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: transform 0.3s ease;
+}
+
+#search-switcher-toggle:hover {
+background-color: #555;
+}
+
+#buttons-container {
+display: grid;
+grid-template-columns: repeat(2, auto);
+grid-gap: 10px;
+margin-top: 40px;
+}
+
+#buttons-container .search-switcher-button {
+padding: 8px 12px;
+font-size: 14px;
+cursor: pointer;
+border: 1px solid #555;
+background-color: #444;
+color: #fff;
+border-radius: 4px;
+min-width: 140px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#buttons-container .search-switcher-button:hover {
+background-color: #555;
+}
+
+#buttons-container .search-switcher-button:disabled {
+background-color: #666;
+cursor: not-allowed;
+}
+
+#search-switcher-container.collapsed #buttons-container {
+display: none;
+}
+
+#search-switcher-container.collapsed #search-switcher-toggle {
+transform: rotate(180deg);
+}
+
+@media (max-width: 800px) {
+    #buttons-container {
+    grid-template-columns: repeat(2, auto);
+    }
+
+    #buttons-container .search-switcher-button {
+    min-width: 120px;
+    }
+}
+
+@media (max-width: 500px) {
+    #buttons-container {
+    grid-template-columns: 1fr;
+    }
+
+    #buttons-container .search-switcher-button {
+    width: 100%;
+    min-width: unset;
+    }
+
+    #search-switcher-toggle {
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px 0 0 5px;
+    }
+
+    #search-switcher-container.collapsed #search-switcher-toggle {
+    transform: rotate(180deg) translateY(-50%);
+    }
+}
